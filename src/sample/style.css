@@ -1,0 +1,11 @@
+.button {
+    -fx-padding: 8;
+}
+
+.lblSectionTitle {
+    -fx-font-size: 40;
+}
+
+.path {
+    -fx-padding: 8;
+}

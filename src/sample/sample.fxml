@@ -7,23 +7,35 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<GridPane fx:id="grid" fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
-    <padding>
-        <Insets top="20" left="20" right="20" bottom="10"/>
-    </padding>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane styleClass="grid" fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <HBox alignment="CENTER_RIGHT">
+            <Button fx:id="btnExit" styleClass="btnExit" text="X" prefWidth="40" prefHeight="25" onAction="#exitApp" onMouseExited="#btnExited" onMouseEntered="#btnHover" />
+        </HBox>
+    </top>
 
-    <Label styleClass="lblSectionTitle" text="NIZER" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-    <Label wrapText="true" text="Select the folder in which you want to organize the files" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <center>
+        <GridPane fx:id="grid"  alignment="center" hgap="10" vgap="10">
 
-    <HBox alignment="CENTER" spacing="5" GridPane.rowIndex="2" GridPane.columnIndex="0">
-        <TextField disable="true" fx:id="selectedPath" styleClass="path"/>
-        <Button fx:id="btnBrowse" text="Browse" onAction="#browseFolder" />
-        <Button disable="true" fx:id="btnStart" text="Start organising" onAction="#startOrganiser" styleClass="btnBig" />
-    </HBox>
+            <padding>
+                <Insets left="20" right="20" bottom="10"/>
+            </padding>
 
-    <TextArea wrapText="true" editable="false" fx:id="txtArea" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-    <Label HBox.hgrow="ALWAYS" text="v1.0"  GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <Label styleClass="lblSectionTitle" text="NIZER" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label wrapText="true" text="Select the folder in which you want to organize the files" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
 
-</GridPane>
+            <HBox alignment="CENTER" spacing="5" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                <TextField editable="false" fx:id="selectedPath" styleClass="path"/>
+                <Button fx:id="btnBrowse" text="Browse" onAction="#browseFolder" />
+                <Button fx:id="btnStart" text="Start organising" onAction="#startOrganiser" styleClass="btnBig" />
+            </HBox>
+
+            <TextArea wrapText="true" editable="false" fx:id="txtArea" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label HBox.hgrow="ALWAYS" text="v1.0"  GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+        </GridPane>
+    </center>
+</BorderPane>

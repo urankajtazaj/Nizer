@@ -1,11 +1,60 @@
 .button {
     -fx-padding: 8;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    -fx-background-color: #444;
+    -fx-text-fill: #fff;
+}
+
+* {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
 }
 
 .lblSectionTitle {
     -fx-font-size: 40;
+    -fx-text-fill: #bbb;
+}
+
+.label {
+    -fx-text-fill: #999;
 }
 
 .path {
     -fx-padding: 8;
+    -fx-background-color: transparent;
+    -fx-border-radius: 0;
+    -fx-border-width: 0;
+    -fx-background-color: #222;
+    -fx-text-fill: #aaa;
+}
+
+.grid {
+    -fx-background-color: #151515;
+}
+
+.btnBig {
+    -fx-background-color: #0074cc;
+    -fx-text-fill: #fff;
+    -fx-border-width: 0
+}
+
+.text-area {
+    -fx-background-color: transparent;
+    -fx-text-fill: #aaa;
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+.text-area .content {
+    -fx-background-color: #222;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+.btnExit {
+    -fx-background-color: #333;
+    -fx-font-weight: bold;
 }

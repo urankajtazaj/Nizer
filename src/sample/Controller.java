@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import jdk.nashorn.internal.ir.CatchNode;
@@ -26,6 +28,7 @@ public class Controller {
     @FXML private TextField selectedPath;
     @FXML private Button btnStart;
     @FXML private TextArea txtArea;
+    @FXML private Button btnExit;
 
     Extensions extensions = new Extensions();
 
@@ -103,13 +106,11 @@ public class Controller {
 
         if (file != null) {
             selectedPath.setText(file.getAbsolutePath());
-            btnStart.setDisable(false);
         }
     }
 
     public void startOrganiser(ActionEvent actionEvent) {
         if (!selectedPath.getText().isEmpty()) {
-            btnStart.setDisable(true);
             btnStart.setText("Organizing...");
 
             Thread t = new Thread(new Runnable() {
@@ -146,5 +147,17 @@ public class Controller {
 
     public void setStage(Stage primaryStage) {
         this.root = primaryStage;
+    }
+
+    public void exitApp(ActionEvent actionEvent) {
+        Platform.exit();
+    }
+
+    public void btnHover(MouseEvent mouseEvent) {
+        btnExit.setStyle("-fx-background-color: red; -fx-text-fill: #fff");
+    }
+
+    public void btnExited(MouseEvent mouseEvent) {
+        btnExit.setStyle("-fx-background-color: #333; -fx-text-fill: #fff");
     }
 }

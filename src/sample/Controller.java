@@ -122,6 +122,7 @@ public class Controller {
                                 txtArea.appendText("\n\n");
                                 filterFiles(selectedPath.getText());
                                 totalCount = audioCount + videoCount + exeCount + docCount + compressedCount + imageCount + otherCount;
+                                videoCount = 0; docCount = 0; audioCount = 0; imageCount = 0; exeCount = 0; compressedCount = 0; otherCount = 0; totalCount = 0;
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

@@ -9,9 +9,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.ir.CatchNode;
 
 import java.io.File;
 import java.net.URI;
+import java.nio.file.FileSystemException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -41,7 +43,6 @@ public class Controller {
 
         for (File f : dir.listFiles()) {
             if (f.isFile()) {
-                txtArea.appendText(f.getName() + "\n");
                 String extension = getExtension(f.getName());
                 File newDir = null;
 
@@ -68,10 +69,15 @@ public class Controller {
                     otherCount++;
                 }
 
-                newDir.mkdir();
+                try {
+                    newDir.mkdir();
 
-                URI moveTo = new File(newDir.getAbsolutePath() + "/" + f.getName()).toURI();
-                Files.move(Paths.get(f.toURI()), Paths.get(moveTo), StandardCopyOption.REPLACE_EXISTING);
+                    URI moveTo = new File(newDir.getAbsolutePath() + "/" + f.getName()).toURI();
+                    Files.move(Paths.get(f.toURI()), Paths.get(moveTo), StandardCopyOption.REPLACE_EXISTING);
+                    txtArea.appendText(f.getName() + ": Done\n");
+                } catch (FileSystemException fse) {
+                    txtArea.appendText(f.getName() + ": Error\n");
+                }
             }
         }
     }
@@ -113,13 +119,14 @@ public class Controller {
                         @Override
                         public void run() {
                             try {
+                                txtArea.appendText("\n\n");
                                 filterFiles(selectedPath.getText());
                                 totalCount = audioCount + videoCount + exeCount + docCount + compressedCount + imageCount + otherCount;
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                             txtArea.appendText("\nDONE\nFound " + totalCount + " files (" + exeCount + " Executables, " + docCount + " Documents, " + videoCount + " Videos, " + audioCount + " Audios, " +
-                                    imageCount + " Images, " + compressedCount + " Compressed, " + otherCount + " Other)\n\n");
+                                    imageCount + " Images, " + compressedCount + " Compressed, " + otherCount + " Other)");
                             txtArea.selectPositionCaret(txtArea.getLength());
 
                             btnStart.setText("Start organising");

@@ -18,7 +18,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root, 350, 300);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        primaryStage.setTitle("File organiser");
+        primaryStage.setTitle("NIZER");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

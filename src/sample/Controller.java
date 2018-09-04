@@ -110,7 +110,7 @@ public class Controller {
     public void startOrganiser(ActionEvent actionEvent) {
         if (!selectedPath.getText().isEmpty()) {
             btnStart.setDisable(true);
-            btnStart.setText("Organising...");
+            btnStart.setText("Organizing...");
 
             Thread t = new Thread(new Runnable() {
                 @Override
@@ -129,7 +129,7 @@ public class Controller {
                                     imageCount + " Images, " + compressedCount + " Compressed, " + otherCount + " Other)");
                             txtArea.selectPositionCaret(txtArea.getLength());
 
-                            btnStart.setText("Start organising");
+                            btnStart.setText("Start organizing");
                             selectedPath.setText("");
                         }
                     });

@@ -122,13 +122,14 @@ public class Controller {
                                 txtArea.appendText("\n\n");
                                 filterFiles(selectedPath.getText());
                                 totalCount = audioCount + videoCount + exeCount + docCount + compressedCount + imageCount + otherCount;
-                                videoCount = 0; docCount = 0; audioCount = 0; imageCount = 0; exeCount = 0; compressedCount = 0; otherCount = 0; totalCount = 0;
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                             txtArea.appendText("\nDONE\nFound " + totalCount + " files (" + exeCount + " Executables, " + docCount + " Documents, " + videoCount + " Videos, " + audioCount + " Audios, " +
                                     imageCount + " Images, " + compressedCount + " Compressed, " + otherCount + " Other)");
                             txtArea.selectPositionCaret(txtArea.getLength());
+
+                            videoCount = 0; docCount = 0; audioCount = 0; imageCount = 0; exeCount = 0; compressedCount = 0; otherCount = 0; totalCount = 0;
 
                             btnStart.setText("Start organizing");
                             selectedPath.setText("");

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Nizer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Nizer_jar</output-path>
+    <root id="archive" name="Nizer.jar">
+      <element id="module-output" name="Nizer" />
+    </root>
+  </artifact>
+</component>

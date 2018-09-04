@@ -24,12 +24,6 @@
     </HBox>
 
     <TextArea wrapText="true" editable="false" fx:id="txtArea" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-
-    <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="4" spacing="5">
-        <Label HBox.hgrow="ALWAYS" text="v1.0"/>
-        <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
-            <Label text="© Uran Kajtazaj - 2018"/>
-        </HBox>
-    </HBox>
+    <Label HBox.hgrow="ALWAYS" text="v1.0"  GridPane.columnIndex="0" GridPane.rowIndex="4"/>
 
 </GridPane>
